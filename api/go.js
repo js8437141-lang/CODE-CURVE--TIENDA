@@ -1,4 +1,4 @@
-const BASE = "https://script.google.com/macros/s/AKfycbzMxQgItf2TsCcpxE3O5PQYGRANzG6eakUmeITGwnE/exec";
+const BASE = "https://script.google.com/macros/s/AKfycbwqAMP6UZ86irzLBQ-UrKdn8gNbDwhZENCyjgUeDwV6iFujz-r0T6cAwZ5KcfPe7zj1/exec";
 
 module.exports = async (req, res) => {
   const KEY = process.env.RESOLVER_KEY || "";
