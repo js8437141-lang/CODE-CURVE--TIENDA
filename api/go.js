@@ -1,5 +1,5 @@
 const SHEET_ID = "1Lqqv2imhS2L2PELnAgdGKqenpd812v0lMsq9-_zHSbU";
-const HOJA = "Licencia";
+const HOJA = "link";
 const CELDA = "B1:B1";
 
 let cache = { url: "", t: 0 };
