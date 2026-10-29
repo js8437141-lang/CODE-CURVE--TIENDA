@@ -12,14 +12,13 @@ module.exports = async (req, res) => {
   }
 
   if (modo === "admin" || modo === "rapi") {
+    let lic = comercio;
     try {
       const r = await fetch(`${BASE}?resolver=${encodeURIComponent(comercio)}&key=${encodeURIComponent(KEY)}`, { redirect: "follow" });
-      const lic = (await r.text()).trim();
-      if (!lic || lic.startsWith("<")) return res.status(404).send("Comercio no encontrado");
-      return res.redirect(302, `${BASE}?${modo}=true&lic=${encodeURIComponent(lic)}`);
-    } catch (err) {
-      return res.status(500).send("Error al consultar la licencia");
-    }
+      const t = (await r.text()).trim();
+      if (t && !t.startsWith("<")) lic = t;
+    } catch (err) {}
+    return res.redirect(302, `${BASE}?${modo}=true&lic=${encodeURIComponent(lic)}`);
   }
 
   res.status(404).send("No encontrado");
